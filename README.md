@@ -3,7 +3,7 @@
 Command-based text editor.
 </p>
 <p align="center">
-<img align="center" src="./docs/pointer_editor.gif" />
+<img align="center" src="./docs/main.gif" />
 </p>
 
 ## Features
