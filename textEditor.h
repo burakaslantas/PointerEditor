@@ -29,7 +29,7 @@ class textEditor
             
             if( !file.is_open() )
             {
-                cout << "Sorry, we couldn't open the file\n"
+                cout << "Sorry, the file couldn't be opened!\n"
                         "Tip: Maybe you entered filename in wrong format or file extension doesn't supported\n"
                         "     Please keep in mind, filename should be formatted as correctly, some examples: \"pointer_editor.txt\", \"is_created_with_love_in_istanbul.txt\", etc.\n"
                         "     Only supported extension is \".txt\"\n";
@@ -77,7 +77,7 @@ class textEditor
             if( !outputFile.is_open() )
             {
                 error = true;
-                return  "Sorry, we couldn't open the file\n"
+                return  "Sorry, the file couldn't be saved!\n"
                         "Tip: Maybe you entered filename in wrong format or file extension doesn't supported\n"
                         "     Please keep in mind, filename should be formatted as correctly, some examples: \"pointer_editor.txt\", \"is_created_with_love_in_istanbul.txt\", etc.\n"
                         "     Only supported extension is \".txt\"\n";
@@ -138,7 +138,7 @@ class textEditor
                 }
             }
 
-            return "The new line successfully inserted!";
+            return "The new line inserted successfully!";
         }
 
         string deleteLine(int index) // BU FONKSİYON TEST EDİLECEK, Bazı caselerde duzgun calismiyor
@@ -172,7 +172,7 @@ class textEditor
 
             fileSize--;
             maxVisiblePage = (fileSize / 10) + 1;
-            return "The line successfully deleted!";
+            return "The line deleted successfully!";
         }
 
         string moveLine(int fromIndex, int toIndex)
@@ -191,13 +191,13 @@ class textEditor
                         string temp = fileContents->GetAt( fromIndex );
                         deleteLine( fromIndex );
                         insertLine( toIndex, temp );
-                        return "The line successfully moved!";
+                        return "The line moved successfully!";
                     }
                     return "Moving operation could not be performed!";
                 }
-                return "This is not a valid toIndex, please enter a valid toIndex";
+                return "This is not a valid destination index, please enter a valid destination index!";
             }
-            return "This is not a valid fromIndex, please enter a valid fromIndex";
+            return "This is not a valid source index, please enter a valid source index!";
         }
 
         string replaceLine(int index, string line)
@@ -211,7 +211,7 @@ class textEditor
             }
 
             fileContents->ReplaceInfoAtNode(index, std::move(line));
-            return "The line's text successfully replaced!";
+            return "The line replaced successfully!";
         }
 
         string nextPage()

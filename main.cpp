@@ -21,7 +21,7 @@ int main()
             "   / __/ / __  / / __/ __ \\/ ___/       \n"
             "  / /___/ /_/ / / /_/ /_/ / /            \n"
             " /_____/\\__,_/_/\\__/\\____/_/          \n\n"
-            "Created by Burak Aslantas  .: ver0.1.1 :.\n"
+            "Created by Burak Aslantas  .: ver0.1.2 :.\n"
             "with <3 in Istanbul (not San Francisco)\n\n\n";
     cout << "         ..::: COMMANDS :::..         \n"
             "######################################\n"
@@ -38,7 +38,7 @@ int main()
             "# 9)   undo    #        undo         #\n"
             "######################################\n"
             "All commands should be contains lower-case characters.\n"
-            "Formats below are NOT ALLOWED\n\n\n";
+            "Type \"exit\" to quit from program.\n\n\n";
 
     textEditor* textPtr; // Points to the textEditor's object
     string command;
@@ -50,7 +50,7 @@ int main()
     getline(cin,filename);
     textPtr = new textEditor(filename);
     maxVisibleLines = textPtr->size();
-    operationState = filename + " openned successfully!";
+    operationState = filename + " opened successfully!";
     
     // All stacks related with "undo" command
     vector<string> commandKeywordStack;
@@ -94,7 +94,11 @@ int main()
         {
             string commandKeyword = commandTokens.at(0);
 
-            if( "next" == commandKeyword )
+            if( "exit" == commandKeyword )
+            {
+                return 0;
+            }
+            else if( "next" == commandKeyword )
             {
                 commandKeywordStack.push_back(commandKeyword);
                 operationState = textPtr->nextPage();
@@ -119,7 +123,7 @@ int main()
                 moveStack.clear();
                 insertIndexStack.clear();
 
-                operationState = filename + " openned successfully!";
+                operationState = filename + " opened successfully!";
             }
             else if( "save" == commandKeyword )
             {
@@ -219,7 +223,7 @@ int main()
                 }
                 else
                 {
-                    operationState = "";
+                    operationState = "Undo command performed successfully!";
                     string lastPerformedCommand = commandKeywordStack.back();
                     commandKeywordStack.pop_back();
 
