@@ -16,7 +16,7 @@ Command-based text editor.
 
 ## Install
 <p align="center">
-<img align="center" src="./docs/install.gif" />
+<img align="center" src="./docs/usage.gif" />
 </p>
 
 * Download from the [releases page](https://github.com/burakaslantas/PointerEditor/releases/)
